@@ -1,15 +1,16 @@
 <div class="login-wrapper d-flex justify-content-center align-items-center">
   <div class="login-card">
     <h3 class="text-center mb-4">Login</h3>
-    <form (ngSubmit)="onSubmit()" aria-label="Login form" class="login-form">
+    <form (ngSubmit)="onSubmit()" aria-label="Login form" class="login-form" [formGroup]="loginForm">
       <div class="login-form">
         <label for="email" class="form-label">Email address</label>
         <input
           type="email"
           class="form-control"
+          formControlName="EmailId"
           id="email"
           name="email"
-          [(ngModel)]="email"
+
           required
           placeholder="Enter your email"
           title="Enter your email address"
@@ -21,10 +22,11 @@
         <label for="password" class="form-label">Password</label>
         <input
           type="password"
+          formControlName="Password"
           class="form-control"
           id="password"
           name="password"
-          [(ngModel)]="password"
+
           required
           placeholder="Enter your password"
           title="Enter your password"
@@ -32,7 +34,7 @@
         >
       </div>
 
-      <button type="submit" class="btn btn-custom w-100">Login</button>
+      <button type="submit"(click)="onLogin()" class="btn btn-custom w-100">Login</button>
     </form>
     <p class="text-center mt-3">
       <a href="#" class="text-decoration-none">Forgot password?</a>

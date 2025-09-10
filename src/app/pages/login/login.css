@@ -22,7 +22,7 @@
 
 }
 .login-form{
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   gap: 1rem;
 
