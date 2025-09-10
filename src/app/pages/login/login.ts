@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
+  imports: [FormsModule, ReactiveFormsModule],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
@@ -16,4 +16,6 @@ export class Login {
     console.log('Password:', this.password);
     // You can add authentication logic here
   }
+
+  loginForm: FormGroup = new FormGroup({});
 }
