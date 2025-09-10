@@ -1,1 +1,35 @@
-<p>login works!</p>
+<div class="login-card">
+    <h3 class="text-center mb-4">Login</h3>
+    <form aria-label="Login form">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          required
+          placeholder="Enter your email"
+          title="Enter your email address"
+          aria-required="true"
+        >
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          required
+          placeholder="Enter your password"
+          title="Enter your password"
+          aria-required="true"
+        >
+      </div>
+      <button type="submit" class="btn btn-custom w-100">Login</button>
+    </form>
+    <p class="text-center mt-3">
+      <a href="#" class="text-decoration-none">Forgot password?</a>
+    </p>
+  </div>

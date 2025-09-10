@@ -4,8 +4,15 @@ import { Component } from '@angular/core';
   selector: 'app-login',
   imports: [],
   templateUrl: './login.html',
-  styleUrl: './login.css'
+  styleUrl: './login.css',
 })
 export class Login {
+  email: string = '';
+  password: string = '';
 
+  onSubmit() {
+    console.log('Email:', this.email);
+    console.log('Password:', this.password);
+    // You can add authentication logic here
+  }
 }
