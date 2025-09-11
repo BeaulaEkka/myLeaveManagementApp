@@ -18,25 +18,18 @@ export class Login {
     // You can add authentication logic here
   }
 
-  loginForm: FormGroup = new FormGroup({
-    EmailId: new FormControl(''),
-    Password: new FormControl(''),
+  // ✅ Reactive form setup
+  loginForm = new FormGroup({
+    EmailId: new FormControl('', [Validators.required, Validators.email]),
+    Password: new FormControl('', [Validators.required]),
   });
 
   http = inject(HttpClient);
   onLogin() {
-    const formValue = this.loginForm.value;
-    this.http.post('https://localhost:44369/api/User/Login', formValue).subscribe({
-      next: (response: any) => {
-        if (response.result) {
-          alert('Login Successful');
-        } else {
-          alert('Invalid Credentials');
-        }
-      },
-      error: (err) => {
-        alert(err.error);
-      },
-    });
+    if (this.loginForm.EmailId == 'test' || this.loginForm.Password == 'test') {
+      alert('Login Successfull');
+    } else {
+      alert('Login Failed');
+    }
   }
 }
