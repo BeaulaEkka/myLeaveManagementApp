@@ -1,7 +1,7 @@
 <div class="login-wrapper d-flex justify-content-center align-items-center">
   <div class="login-card">
     <h3 class="text-center mb-4">Login</h3>
-    <form (ngSubmit)="onSubmit()" aria-label="Login form" class="login-form" [formGroup]="loginForm">
+    <form (ngSubmit)="onSubmit()" aria-label="Login form" class="login-form" >
       <div class="login-form">
         <label for="email" class="form-label">Email address</label>
         <input
@@ -34,7 +34,7 @@
         >
       </div>
 
-      <button type="submit"(click)="onLogin()" class="btn btn-custom w-100">Login</button>
+      <button type="submit" class="btn btn-custom w-100">Login</button>
     </form>
     <p class="text-center mt-3">
       <a href="#" class="text-decoration-none">Forgot password?</a>

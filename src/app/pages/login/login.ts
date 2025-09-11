@@ -9,8 +9,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './login.css',
 })
 export class Login {
-  email: string = '';
-  password: string = '';
+  http = inject(HttpClient);
 
   onSubmit() {
     console.log('Email:', this.email);
@@ -24,12 +23,20 @@ export class Login {
     Password: new FormControl('', [Validators.required]),
   });
 
-  http = inject(HttpClient);
-  onLogin() {
-    if (this.loginForm.EmailId == 'test' || this.loginForm.Password == 'test') {
-      alert('Login Successfull');
+  onSubmit() {
+    if (this.loginForm.valid) {
+      const { EmailId, Password } = this.loginForm.value;
+
+      if (EmailId === 'test' && Password === 'test') {
+        alert('Login Successful');
+      } else {
+        alert('Login Failed');
+      }
+
+      // Example: real HTTP login
+      // this.http.post('/api/login', { EmailId, Password }).subscribe(...)
     } else {
-      alert('Login Failed');
+      alert('Please fill out the form correctly');
     }
   }
 }
