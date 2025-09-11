@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 })
 export class Login {
   http = inject(HttpClient);
+  router = inject(Router);
 
   // ✅ Reactive form setup
   loginForm = new FormGroup({
@@ -22,13 +24,13 @@ export class Login {
       const { EmailId, Password } = this.loginForm.value;
 
       if (EmailId === 'test' && Password === 'test') {
+        this.router.navigate(['/dashboard']);
         alert('Login Successful');
       } else {
         alert('Login Failed');
       }
 
-      // Example: real HTTP login
-      // this.http.post('/api/login', { EmailId, Password }).subscribe(...)
+
     } else {
       alert('Please fill out the form correctly');
     }
