@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -11,16 +11,10 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class Login {
   http = inject(HttpClient);
 
-  onSubmit() {
-    console.log('Email:', this.email);
-    console.log('Password:', this.password);
-    // You can add authentication logic here
-  }
-
   // ✅ Reactive form setup
   loginForm = new FormGroup({
-    EmailId: new FormControl('', [Validators.required, Validators.email]),
-    Password: new FormControl('', [Validators.required]),
+    EmailId: new FormControl('', [Validators.required]),
+    Password: new FormControl('', [Validators.required, Validators.minLength(4)]),
   });
 
   onSubmit() {
