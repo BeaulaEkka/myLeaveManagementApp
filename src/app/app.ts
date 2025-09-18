@@ -13,6 +13,6 @@ export class App {
   protected readonly title = signal('myLeaveManagementApp');
 
   isLoginPage(): boolean {
-    return this.router.url === '/login';
+    return window.location.pathname === '/login';
   }
 }
